@@ -11,7 +11,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
     return (
         <Link
             href={`/receitas/${recipe.id}`}
-            className="group block bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-orange-500/50 transition-all hover:shadow-lg hover:shadow-orange-500/5"
+            className="group block bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/5"
         >
             <div className="aspect-video bg-zinc-800 overflow-hidden">
                 {primaryPhoto ? (
@@ -27,7 +27,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
                 )}
             </div>
             <div className="p-4 space-y-2">
-                <h2 className="text-base font-bold text-zinc-50 line-clamp-2 group-hover:text-orange-400 transition-colors">
+                <h2 className="text-base font-bold text-zinc-50 line-clamp-2 group-hover:text-green-300 transition-colors">
                     {recipe.name}
                 </h2>
                 {recipe.prepTime && (

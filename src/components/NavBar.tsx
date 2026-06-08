@@ -16,7 +16,7 @@ export default function NavBar() {
     return (
         <nav className="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-800">
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="text-xl font-black text-zinc-50 hover:text-orange-400 transition-colors">
+                <Link href="/" className="text-xl font-black text-zinc-50 hover:text-green-300 transition-colors">
                     Receitas
                 </Link>
                 <div className="flex items-center gap-1">

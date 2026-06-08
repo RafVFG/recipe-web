@@ -64,7 +64,7 @@ export default function RecipeDetailPage() {
         <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
             <div className="text-center space-y-4">
                 <p className="text-zinc-400">{error ?? 'Receita não encontrada'}</p>
-                <Link href="/" className="text-orange-500 hover:text-orange-400 transition-colors">← Voltar</Link>
+                <Link href="/" className="text-green-400 hover:text-green-300 transition-colors">← Voltar</Link>
             </div>
         </div>
     )
@@ -88,12 +88,12 @@ export default function RecipeDetailPage() {
                         disabled={favLoading}
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-50 ${
                             favorited
-                                ? 'bg-orange-500/20 text-orange-400 hover:bg-orange-500/30'
-                                : 'bg-zinc-800 text-zinc-400 hover:text-orange-400 hover:bg-zinc-700'
+                                ? 'bg-green-400/20 text-green-400 hover:bg-green-400/30'
+                                : 'bg-zinc-800 text-zinc-400 hover:text-green-300 hover:bg-zinc-700'
                         }`}
                         title={favorited ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
                     >
-                        <Heart size={16} className={favorited ? 'fill-orange-400' : ''} />
+                        <Heart size={16} className={favorited ? 'fill-green-400' : ''} />
                         {favorited ? 'Favoritado' : 'Favoritar'}
                     </button>
                 </div>
@@ -145,7 +145,7 @@ export default function RecipeDetailPage() {
                         <ul className="space-y-2">
                             {recipe.ingredients?.map((ing, i) => (
                                 <li key={i} className="flex gap-3 text-zinc-300 text-sm">
-                                    <span className="text-orange-500 mt-0.5">•</span>
+                                    <span className="text-green-400 mt-0.5">•</span>
                                     <span>{ing.amount ? `${ing.amount} de ${ing.name}` : ing.name}</span>
                                 </li>
                             ))}
@@ -157,7 +157,7 @@ export default function RecipeDetailPage() {
                         <ol className="space-y-4">
                             {directions.map((step, i) => (
                                 <li key={i} className="flex gap-3">
-                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-400 text-green-950 text-xs font-bold flex items-center justify-center mt-0.5">
                                         {i + 1}
                                     </span>
                                     <p className="text-zinc-300 text-sm leading-relaxed">{step}</p>

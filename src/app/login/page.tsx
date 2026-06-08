@@ -1,44 +1,49 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { api } from '@/services/api'
+import { useAuth } from '@/hooks/useAuth'
 import { toast } from 'sonner'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
-    const [sent, setSent] = useState(false)
+    const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const { login } = useAuth()
+    const router = useRouter()
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
         setLoading(true)
         try {
-            await api.post('/auth/request', { email })
-            setSent(true)
-        } catch {
-            toast.error('E-mail não encontrado')
+            const res = await api.post('/auth/login', { email: email.trim(), password })
+            const { jwt } = res.data
+            const payload = JSON.parse(atob(jwt.split('.')[1]))
+            const userId = typeof payload.userId === 'number' ? payload.userId : Number(payload.userId)
+            if (!userId) {
+                toast.error('Erro ao entrar')
+                return
+            }
+            login(jwt, userId)
+            router.replace('/')
+        } catch (err: any) {
+            if (err?.response?.status === 401) {
+                toast.error('Email ou senha inválidos')
+            } else {
+                toast.error('Erro ao entrar')
+            }
         } finally {
             setLoading(false)
         }
-    }
-
-    if (sent) {
-        return (
-            <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
-                <div className="text-center space-y-4">
-                    <h1 className="text-2xl font-bold text-zinc-50">Link enviado!</h1>
-                    <p className="text-zinc-400">Verifique seu e-mail para acessar o sistema.</p>
-                </div>
-            </div>
-        )
     }
 
     return (
         <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
             <div className="w-full max-w-sm space-y-8">
                 <div>
-                    <h1 className="text-5xl font-black text-zinc-50">Receitas</h1>
-                    <p className="mt-2 text-zinc-400">Entre com seu e-mail para acessar</p>
+                    <h1 className="text-5xl font-black text-zinc-50 select-none">Receitas</h1>
+                    <p className="mt-2 text-zinc-400">Entre na sua conta</p>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <input
@@ -46,20 +51,35 @@ export default function LoginPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="seu@email.com"
+                        autoComplete="email"
                         required
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Senha"
+                        autoComplete="current-password"
+                        required
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                    />
+                    <div className="text-right">
+                        <Link href="/esqueci-senha" className="text-sm text-green-400 hover:text-green-300 transition-colors">
+                            Esqueci minha senha →
+                        </Link>
+                    </div>
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 disabled:opacity-50 transition-colors"
+                        className="w-full py-3 bg-green-400 text-green-950 font-semibold rounded-lg hover:bg-green-500 disabled:opacity-50 transition-colors"
                     >
-                        {loading ? 'Enviando...' : 'Enviar link de acesso'}
+                        {loading ? 'Entrando...' : 'Entrar'}
                     </button>
                 </form>
                 <p className="text-center text-zinc-500 text-sm">
                     Não tem conta?{' '}
-                    <Link href="/cadastro" className="text-orange-500 hover:text-orange-400 transition-colors">
+                    <Link href="/cadastro" className="text-green-400 hover:text-green-300 transition-colors">
                         Cadastre-se →
                     </Link>
                 </p>

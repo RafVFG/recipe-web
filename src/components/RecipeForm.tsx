@@ -95,8 +95,8 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
         }
     }
 
-    const inputClass = "w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
-    const smallInputClass = "w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors text-sm"
+    const inputClass = "w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+    const smallInputClass = "w-full px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors text-sm"
 
     return (
         <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl">
@@ -133,14 +133,14 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
                                 value={ing.name}
                                 onChange={(e) => updateIngredient(i, 'name', e.target.value)}
                                 placeholder="Ingrediente"
-                                className="flex-1 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 text-sm"
+                                className="flex-1 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 text-sm"
                             />
                             <input
                                 type="text"
                                 value={ing.amount}
                                 onChange={(e) => updateIngredient(i, 'amount', e.target.value)}
                                 placeholder="Qtd (ex: 2 xícaras)"
-                                className="w-40 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 text-sm"
+                                className="w-40 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 text-sm"
                             />
                             {form.ingredients.length > 1 && (
                                 <button
@@ -157,7 +157,7 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
                 <button
                     type="button"
                     onClick={() => setForm(f => ({ ...f, ingredients: [...f.ingredients, { name: '', amount: '' }] }))}
-                    className="mt-2 flex items-center gap-1.5 text-sm text-orange-500 hover:text-orange-400 transition-colors"
+                    className="mt-2 flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors"
                 >
                     <Plus size={14} /> Adicionar ingrediente
                 </button>
@@ -176,7 +176,7 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
                                 onChange={(e) => updateDirection(i, e.target.value)}
                                 placeholder={`Passo ${i + 1}`}
                                 rows={2}
-                                className="flex-1 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 text-sm resize-none"
+                                className="flex-1 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 text-sm resize-none"
                             />
                             {form.directions.length > 1 && (
                                 <button
@@ -193,7 +193,7 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
                 <button
                     type="button"
                     onClick={() => setForm(f => ({ ...f, directions: [...f.directions, ''] }))}
-                    className="mt-2 flex items-center gap-1.5 text-sm text-orange-500 hover:text-orange-400 transition-colors"
+                    className="mt-2 flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors"
                 >
                     <Plus size={14} /> Adicionar passo
                 </button>
@@ -244,7 +244,7 @@ export default function RecipeForm({ initialData }: { initialData?: Recipe }) {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 disabled:opacity-50 transition-colors"
+                    className="px-6 py-3 bg-green-400 text-green-950 font-semibold rounded-lg hover:bg-green-500 disabled:opacity-50 transition-colors"
                 >
                     {loading ? 'Salvando...' : initialData ? 'Salvar alterações' : 'Criar receita'}
                 </button>

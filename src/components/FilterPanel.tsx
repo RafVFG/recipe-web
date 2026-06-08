@@ -49,7 +49,7 @@ export default function FilterPanel({ filters, onApply }: FilterPanelProps) {
                 className={clsx(
                     'flex items-center gap-2 px-4 py-3 rounded-lg border text-sm font-medium transition-colors whitespace-nowrap',
                     activeCount > 0
-                        ? 'bg-orange-500 border-orange-500 text-white'
+                        ? 'bg-green-400 border-green-400 text-green-950'
                         : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:border-zinc-600'
                 )}
             >
@@ -76,7 +76,7 @@ export default function FilterPanel({ filters, onApply }: FilterPanelProps) {
                                     value={local.ingredient ?? ''}
                                     onChange={(e) => setLocal(l => ({ ...l, ingredient: e.target.value || undefined }))}
                                     placeholder="ex: tomate"
-                                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 text-sm"
+                                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 text-sm"
                                 />
                             </div>
                             <div>
@@ -95,7 +95,7 @@ export default function FilterPanel({ filters, onApply }: FilterPanelProps) {
                                     onChange={(e) => setLocal(l => ({ ...l, prepTime: e.target.value ? Number(e.target.value) : undefined }))}
                                     placeholder="ex: 30"
                                     min="1"
-                                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 text-sm"
+                                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 text-sm"
                                 />
                             </div>
                         </div>
@@ -104,7 +104,7 @@ export default function FilterPanel({ filters, onApply }: FilterPanelProps) {
                             <button onClick={clear} className="flex-1 py-2 border border-zinc-700 text-zinc-300 rounded-lg text-sm hover:border-zinc-500 transition-colors">
                                 Limpar
                             </button>
-                            <button onClick={apply} className="flex-1 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors">
+                            <button onClick={apply} className="flex-1 py-2 bg-green-400 text-green-950 rounded-lg text-sm font-medium hover:bg-green-500 transition-colors">
                                 Aplicar
                             </button>
                         </div>

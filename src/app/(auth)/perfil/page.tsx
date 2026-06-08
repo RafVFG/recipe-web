@@ -33,7 +33,7 @@ export default function PerfilPage() {
                     <h1 className="text-3xl font-black text-zinc-50">Minhas Receitas</h1>
                     <Link
                         href="/perfil/receitas/nova"
-                        className="flex items-center gap-2 px-4 py-2.5 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-colors text-sm"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-green-400 text-green-950 font-medium rounded-lg hover:bg-green-500 transition-colors text-sm"
                     >
                         <Plus size={16} />
                         Nova receita
@@ -45,7 +45,7 @@ export default function PerfilPage() {
                 ) : recipes.length === 0 ? (
                     <div className="text-center py-20 space-y-4">
                         <p className="text-zinc-500">Você ainda não criou nenhuma receita.</p>
-                        <Link href="/perfil/receitas/nova" className="text-orange-500 hover:text-orange-400 transition-colors">
+                        <Link href="/perfil/receitas/nova" className="text-green-400 hover:text-green-300 transition-colors">
                             Criar minha primeira receita →
                         </Link>
                     </div>
