@@ -30,7 +30,7 @@ export default function TagInput({ tags, onChange, placeholder = 'Nova tag', inp
         }
     }
 
-    const baseInputClass = 'flex-1 px-3 py-2 border rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors text-sm'
+    const baseInputClass = 'flex-1 px-3 py-2 border rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors text-sm'
 
     return (
         <div className="space-y-2">

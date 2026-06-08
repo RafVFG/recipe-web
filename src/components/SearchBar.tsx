@@ -15,7 +15,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
                 placeholder="Buscar receitas..."
-                className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
             />
         </div>
     )
