@@ -30,7 +30,7 @@ export default function CadastroPage() {
 
     if (sent) {
         return (
-            <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
+            <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-4">
                 <div className="text-center space-y-4">
                     <h1 className="text-2xl font-bold text-zinc-50">Link enviado!</h1>
                     <p className="text-zinc-400">Verifique seu e-mail para acessar o sistema.</p>
@@ -40,11 +40,11 @@ export default function CadastroPage() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
+        <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-4">
             <div className="w-full max-w-sm space-y-8">
                 <div>
                     <h1 className="text-5xl font-black text-zinc-50 select-none">Receitas</h1>
-                    <p className="mt-2 text-zinc-400">Crie sua conta</p>
+                    <p className="mt-2 text-zinc-400 select-none">Crie sua conta</p>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <input
@@ -54,7 +54,7 @@ export default function CadastroPage() {
                         placeholder="Seu nome"
                         required
                         autoComplete="name"
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
                     <input
                         type="email"
@@ -63,7 +63,7 @@ export default function CadastroPage() {
                         placeholder="seu@email.com"
                         required
                         autoComplete="email"
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
                     <input
                         type="password"
@@ -72,7 +72,7 @@ export default function CadastroPage() {
                         placeholder="Senha"
                         required
                         autoComplete="new-password"
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
                     <button
                         type="submit"

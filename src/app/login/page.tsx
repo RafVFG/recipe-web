@@ -39,7 +39,7 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
+        <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-4">
             <div className="w-full max-w-sm space-y-8">
                 <div>
                     <h1 className="text-5xl font-black text-zinc-50 select-none">Receitas</h1>
@@ -53,7 +53,7 @@ export default function LoginPage() {
                         placeholder="seu@email.com"
                         autoComplete="email"
                         required
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
                     <input
                         type="password"
@@ -62,7 +62,7 @@ export default function LoginPage() {
                         placeholder="Senha"
                         autoComplete="current-password"
                         required
-                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
+                        className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-zinc-50 placeholder-zinc-500 focus:outline-none focus:border-green-400 transition-colors"
                     />
                     <div className="text-right">
                         <Link href="/esqueci-senha" className="text-sm text-green-400 hover:text-green-300 transition-colors">
